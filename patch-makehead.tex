@@ -1,0 +1,16 @@
+\patchcmd{\makehead}
+  {\hfil}
+  {\hspace*{0.15\textwidth}}
+  {}
+  {}
+\patchcmd{\makehead}
+  {\setlength{\makeheaddetailswidth}{0.8\textwidth}}
+  {\setlength{\makeheaddetailswidth}{0.67\textwidth}}
+  {}
+  {}
+\patchcmd{\makehead}
+  {\\[2.5em]}
+  {\hfil\raisebox{-.7cm}{\framebox{\includegraphics[width=\@photowidth]{\@photo}}}\\[2.5em]}
+  {}
+  {}
+  
