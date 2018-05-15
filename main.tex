@@ -26,7 +26,16 @@
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
+%\usepackage{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{1}
+
 \usepackage{import}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+%\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyfoot[L]{\tiny{git : \input{gitlog.tex}}}
 
 \newcommand{\myvspace}{\vspace{6pt}}
 \newcommand{\myitem}[2]{\item{\textbf{#1} #2}\vspace{5pt}}
@@ -136,10 +145,6 @@
 %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
 %-----       letter       ---------------------------------------------------------
-
-\tiny{git version of this resume :
-\input{gitlog.tex}
-}
 
 \end{document}
 
