@@ -11,13 +11,15 @@
 count=`git status --porcelain | wc --lines | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
 
 case $count in
-0)
+1)
+version=`git log --format="%H" -n 1 | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
 git log --format="%H" -n 1 > gitlog.tex
+
 pdflatex main.tex
 pdflatex main.tex
 pdflatex main.tex
-rm -rf cv-laurent-carrie.pdf
-cp main.pdf cv-laurent-carrie.pdf
+rm -rf *.pdf
+cp main.pdf cv-laurent-carrie-$version.pdf
 ;;
 *)
 echo $count files not checked in
