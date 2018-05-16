@@ -4,6 +4,7 @@
 #set -x
 
 
+
 #set PATH=F:\\miktex\\texmfs\\install\\miktex\\bin:$PATH
 
 #set count=`git log --format="%H"`
@@ -15,6 +16,8 @@ git log --format="%H" -n 1 > gitlog.tex
 pdflatex main.tex
 pdflatex main.tex
 pdflatex main.tex
+rm -rf cv-laurent-carrie.pdf
+mv main.pdf cv-laurent-carrie.pdf
 ;;
 *)
 echo $count files not checked in
