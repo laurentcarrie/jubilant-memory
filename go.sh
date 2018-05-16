@@ -11,7 +11,7 @@
 count=`git status --porcelain | wc --lines | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
 
 case $count in
-1)
+0)
 version=`git log --format="%H" -n 1 | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
 git log --format="%H" -n 1 > gitlog.tex
 
