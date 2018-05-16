@@ -17,7 +17,7 @@ pdflatex main.tex
 pdflatex main.tex
 pdflatex main.tex
 rm -rf cv-laurent-carrie.pdf
-mv main.pdf cv-laurent-carrie.pdf
+cp main.pdf cv-laurent-carrie.pdf
 ;;
 *)
 echo $count files not checked in
