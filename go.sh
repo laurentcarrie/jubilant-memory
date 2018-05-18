@@ -15,10 +15,10 @@ case $count in
 version=`git log --format="%H" -n 1 | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
 git log --format="%H" -n 1 > gitlog.tex
 
-pdflatex main.tex
-pdflatex main.tex
-pdflatex main.tex
 rm -rf *.pdf
+pdflatex main.tex
+pdflatex main.tex
+pdflatex main.tex
 cp main.pdf cv-laurent-carrie-$version.pdf
 ;;
 *)
