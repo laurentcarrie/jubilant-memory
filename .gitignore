@@ -4,5 +4,6 @@
 *.log
 *.out
 *.gz
+*~
 gitlog.tex
 
