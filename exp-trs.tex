@@ -5,10 +5,34 @@
 {Thales Raytheon Systems (TRS)} % Organization
 {Massy, France} % Location
 {}
+{
+\iftoggle{anglais}
+{
+In TRS I was responsible of the design, the implementation, the maintainance and support of the software framework of military air control systèmes. The main caracteristics of this framework are~:
+\begin{itemize}
+\item{reliability : the framework provides reconfiguration, redundancy, persistency and communication services allowing the system to be available 24/24, even in case of hardware or software crash. }
+\item{variability : the framework is deplyed on different systems (France, OTAN, Switzerland, ...), that have different requirements}
+\item{ease of use : the framework is used by different partners or contractors. Its ease of use, the small API limited to a few functions, the clear error reporting made it an key tool, taking part of the success of the global systeml.}
+\item{figures : 100K lines of C++ code, management of an 8 people team. Support of the product on decades.}
+\end{itemize}
+%\\[6pt]
+The framework is also the technical interface of the applicative modules, so I also was involved in~: 
+\begin{itemize}
+\item {Sytem design in a european team (NATO) and with our USA partner (Raytheon) on the NATO LOC1 project (NATO Air Traffic Control)}
+\item {Technical interface with our partner Raytheon}
+\end{itemize}
+%\\[6pt]
+The framework was deployed on other systems delivered by TRS, with a software design paradigm that allowed us to minimize the software implementation with the respect to  the big differences on the clients requirements.
+ \begin{itemize}
+ \item SEROS (Belgium Air Traffic Control, Semmerzake)
+ \item Florako (Switzerland)
+ \item CLM (France, Mont de Marsan)
+ \item ACCS LOC1 (NATO)
+}
 { % Description(s) of tasks/responsibilities
 Au sein de TRS j'étais responsable de la conception, l'implémentation, la maintenance et le support des frameworks logiciels des centres de contrôles aérien militaires. Les caractéristiques prépondérantes de ce framework sont~:
 \begin{itemize}
-\item{fiabilité : le framework apporte des services de reconfiguration, persistence et communication pour que le système soit disponible 24/24, même en cas de panne (par exemple, crash d'un applicatif) }
+\item{fiabilité : le framework apporte des services de reconfiguration, redondance, persistence et communication pour que le système soit disponible 24/24, même en cas de panne (par exemple, crash d'un applicatif) }
 \item{variabilité : le framework est déployé sur différents systèmes (France, OTAN, Suisse, ...), qui ont des spécifications différentes}
 \item{simplicité : le framework est utilisé par des partenaires et des sous-traitants multiples. Sa simplicité de mise en oeuvre, l'API limitée à quelques fonctions, le reporting sont un gage du succès du système global.}
 \item{chiffres : 100K lignes de code C++, encadrement d'une équipe de 8 personnes. Maintenance sur plusieurs dizaines d'années.}
@@ -26,6 +50,7 @@ Le framework a été déployé sur les autres systèmes de contrôle aérien liv
  \item Florako (Suisse)
  \item CLM (France, intégration à Mont de Marsan)
  \item ACCS LOC1 (Contrôle aérien des forces de l'OTAN)
- \end{itemize}
 }
 }
+}
+

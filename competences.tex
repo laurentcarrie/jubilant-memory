@@ -1,5 +1,9 @@
+\iftoggle{anglais}{
+\section{Computer skills}
+}
+{
 \section{Compétences}
-
+}
 \begin{itemize}
 
 \myitem
@@ -9,7 +13,7 @@
 {Languages :}{C, C++11, C++, STL, templates, Python, OCaml, OMake, CMake, Matlab/Simulink, LaTeX, Rugy, Java, Erlang, sql, Xml, Json, Corba, multithreading}
 
 \myitem
-{Outils :}{git, clearcase, Jenkins, cmake, ctest, emacs, visual studio, wix, jenkins, jira, modelers UML, eclipse, maven, matlab toolboxes (data science, identification toolbox, robust control)}
+{\iftoggle{anglais}{Tools:}{Outils :}}{git, clearcase, Jenkins, cmake, ctest, emacs, visual studio, wix, jenkins, jira, modelers UML, eclipse, maven, matlab toolboxes (data science, identification toolbox, robust control)}
 
 \myitem
 {architecture :}{systèmes logiciels complexes, temps réel(simulateur hélico), disponibilité 24/24 (contrôle aérien), sans interruption de service}

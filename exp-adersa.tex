@@ -11,22 +11,51 @@
 { 
 % Description(s) of tasks/responsibilities
 (web : \href{https://www.sherpa-eng.com/}{https://www.sherpa-eng.com/})
+\iftoggle{anglais}
+{Study of non linear systems and control synthesis. \\[6pt]
+In this small company of 40 engineers, I was responsible of the design, implementation, support and takings of non-linear control software. The object was the study of a complex physical system, for instance the angle of list of an aircraft carrier during a gyration, and then create matlab model of the system, with either physical differential equations or transfert functions.
+}
+{
 Etude de systèmes non linéaires et synthèse d'asservissements.    \\[6pt]
 Au sein de cette PME de 40 ingénieurs, j'étais responsable de la conception, implémentation, support et recette de lois de commande non linéaire. Il s'agissait d'étudier un problème physique complexe, comme par exemple la gite d'un porte-avion lors de la giration, de le modéliser sous matlab sous forme d'équations physiques, ou d'identifier des fonctions de transfert.
+}
 \newline
+\iftoggle{anglais}
+{
+The identification is done with data science toolboxes, provided by the Matlab ecosystem.
+The job was then to synthesize a control law, allowing to control the system, as required by the client specifications, as for instance to keep the ship deck horizontal during the gyration.
+}
+{
 L'identification se faisait à l'aide d'outils de data science, fournis par des librairies de l'écosystème Matlab.
  Il fallait ensuite synthétiser une loi de commande permettant d'asservir le système pour lui faire respecter le besoin du client, comme par exemple garder le pont du porte-avions à plat lors de la giration du batiment.
+}
 \newline
+\iftoggle{anglais}
+{
+Examples of projets :
+\begin{itemize}
+\item {for the french DCN : control of list angle under gyration of the Charles de Gaulle aircraft carrier}
+\item {for the DDE 94 : control of sewage water flows for the Valenton wastewater treatment plant}
+\item {for Béghin-Say : control of sugar crystallization of the Abbeville sugar plant}
+\item {technologies : Matlab/Simulink, C, C++}
+}
+{
 Exemples de projets :
 \begin{itemize}
 \item {pour la DCN : contrôle de gite sous giration du porte avions Charles de Gaulle}
 \item {pour la DDE 94 : contrôle des débits d'eau usée pour la station d'épuration de Valenton}
 \item {pour Béghin-Say : contrôle de la cristallisation du sucre de l'usine d'Abbeville}
 \item {technologies : Matlab/Simulink, C, C++}
+}
 \end{itemize}
 %\small{
 %\newline
-Pour certains systèmes la loi d'asservissement était implémentée en C et implantée dans le système, ce qui impliquait une campagne de qualification et la maintenance en production.
+\iftoggle{anglais}{
+For some projects the control law was written in C, tested under matlab and implanted in the system, thus leading to a qualification campaign, support and maintenance.
+}
+{
+Pour certains systèmes la loi d'asservissement était implémentée en C, testée sous matlab et implantée dans le système, ce qui impliquait une campagne de qualification et la maintenance en production.
+}
 %}
 } %bloc cventry
 } %item
