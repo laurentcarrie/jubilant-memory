@@ -4,7 +4,8 @@ set -e
 #set -x
 
 
-dropboxdir=c:/users/laurent/dropbox/cv
+#dropboxdir=c:/users/laurent/dropbox/cv
+dropboxdir=/cygdrive/c/users/laurent/dropbox/cv
 
 #set PATH=F:\\miktex\\texmfs\\install\\miktex\\bin:$PATH
 
