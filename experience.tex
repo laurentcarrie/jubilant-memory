@@ -20,6 +20,17 @@
 {}
 { % Description(s) of tasks/responsibilities
 \\[6pt]
+\iftoggle{anglais}
+         {
+           This last year I work on enhancing the visual database production tool. This tool allows to generate files (so-called database), used by the runtime rendering engine, from descriptions and open source databases such as OpenStreetMap.
+\\[6pt]
+\begin{itemize}
+\item {Software architecture of re-engineering of simulators visual database production.}
+\item {Reduction of production time from several days to the hour.}
+\item {C++11, QGIS, OpenStreetMap, Collada}
+\end{itemize}
+         }
+         {
 Cette dernière année j'ai travaillé à améliorer l'outil de production de bases de données visuelles. Cet outil permet de générer des fichiers
 (base de données) utilisables au runtime par le moteur de rendu graphique, à partir d'images, de descriptions et de base de données open sources
 telles que OpenStreetMap.
@@ -29,6 +40,7 @@ telles que OpenStreetMap.
 \item {Réduction des temps de production de plusieurs jours à quelques dizaines de minutes.}
 \item {C++11, QGIS, OpenStreetMap, Collada}
 \end{itemize}
+}
 }
 {
 }
@@ -41,12 +53,22 @@ telles que OpenStreetMap.
 {Thales Training et Simulation} % Organization
 {Cergy, France} % Location
 {}
-{ % Description(s) of tasks/responsibilities
+{
+  \iftoggle{anglais}
+           {
+\begin{itemize}
+\item {Maintenance of flight loop simulation models}
+\item {Rewriting and encapsulation of models (for using in Matlab)}
+\item {Matlab, Simulink, C++, Python}
+\end{itemize}
+           }
+           {
 \begin{itemize}
 \item {Maintenance des modèles de simulation de la boucle de vol}
 \item {Réécriture et encapsulation Maintenance des modèles de simulation de la boucle de vol}
 \item {Matlab, Simulink, C++, Python}
 \end{itemize}
+}
 }
 }
 

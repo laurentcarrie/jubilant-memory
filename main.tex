@@ -48,9 +48,9 @@
 %\myhr
 }
 
-
-\newtoggle{anglais}
-\toggletrue{anglais}
+\input{langue.tex}
+%\newtoggle{anglais}
+%\toggletrue{anglais}
 
 % personal data
 \name{Laurent}{Carrié}
@@ -125,12 +125,25 @@
 %\input{autres-interets.tex}
 
 
+\iftoggle{anglais}
+{
+\section{References}
+\vspace{6pt}
+\begin{itemize}
+\item{available on request}
+%\item{disponibles sur demande}
+\end{itemize}
+}
+{
 \section{Références}
 \vspace{6pt}
 \begin{itemize}
 %\item{available on request}
 \item{disponibles sur demande}
 \end{itemize}
+}
+
+
 %\end{spacing}
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART

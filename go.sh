@@ -10,21 +10,29 @@ dropboxdir=/cygdrive/c/users/laurent/dropbox/cv
 #set PATH=F:\\miktex\\texmfs\\install\\miktex\\bin:$PATH
 
 #set count=`git log --format="%H"`
-count=`git status --porcelain | wc --lines | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
+count=`git status --porcelain | wc --lines | tr --delete '\r' | tr --delete '\n' | tr --delete ' '`
+
+function generate {
+    langue=$1
+    version=$2
+    cvname=cv-laurent-carrie-$langue-$version.pdf
+    pdflatex main.tex
+    pdflatex main.tex
+    pdflatex main.tex
+    cp main.pdf $cvname
+    cp $cvname $dropboxdir/$cvname
+    }
 
 case $count in
-0)
+*)
 version=`git log --format="%H" -n 1 | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
 git log --format="%H" -n 1 > gitlog.tex
-cvname=cv-laurent-carrie-$version.pdf
-
 rm -rf *.pdf
-pdflatex main.tex
-pdflatex main.tex
-pdflatex main.tex
-cp main.pdf $cvname
 rm -f $dropboxdir/cv*.pdf
-cp $cvname $dropboxdir/$cvname
+cp langue-english.tex langue.tex
+generate english $version
+cp langue-francais.tex langue.tex
+generate francais $version
 ;;
 *)
 echo $count files not checked in
