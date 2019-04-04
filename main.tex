@@ -20,7 +20,8 @@
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-
+\usepackage{textgreek}
+\usepackage{dictsym}
 % adjust the page margins
 \usepackage[scale=0.75]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
@@ -29,22 +30,40 @@
 %\usepackage{draftwatermark}
 %\SetWatermarkText{DRAFT}
 %\SetWatermarkScale{1}
-
+\definecolor{fondentreprise}{rgb}{0.96, 0.94, 0.93}
+%\definecolor{fondentreprise}{rgb}{0.95,0.55,0.15}% orange
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\usepackage{bbding}
 \usepackage{import}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{0.4pt}
 %\fancyhead[LE,RO]{\slshape \rightmark}
 \fancyfoot[L]{\tiny{git : \input{gitlog.tex}}}
-
 %\newcommand{\myvspace}{\\\\[6pt]}
 \newcommand{\myitem}[2]{\item{\textbf{#1} #2}\vspace{5pt}}
 \newcommand{\myhr}{\noindent\rule{15.7cm}{0.4pt}}
 
+
+%\newcommand\itemq{\item[\textbf{\textPsi}]}
+%\newcommand\itemq{\item[\textbf{\dstechnical}]}
+\newcommand\itemq{\item[\textbf{\Sparkle}]}
+
+\newcommand\itemformation{\item[\textbf{\dstechnical}]}
+
+\usepackage{allrunes}
+\usepackage{epiolmec}
+\usepackage{MnSymbol}
+%\newcommand\itemexperience{\item[\AsteriskThinCenterOpen]}
+\newcommand\itemexperience{\item[]}
+
 \newcommand\cventrylc[6]{
-\cventry{#1}{#2}{#3}{#4}{#5}{#6
+\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{\textit{#1}}\makebox[10cm][r]{#3, #4}}}
+\newline
+\textbf{\textit{#2}}
+\newline
+{#5}{#6}
 \myhr
-}
 %\myhr
 }
 

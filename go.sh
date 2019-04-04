@@ -1,8 +1,9 @@
 #!/bin/sh
 
 set -e
-#set -x
+set -x
 
+rm -rf out
 
 #dropboxdir=c:/users/laurent/dropbox/cv
 dropboxdir=/cygdrive/c/users/laurent/dropbox/cv
@@ -10,7 +11,7 @@ dropboxdir=/cygdrive/c/users/laurent/dropbox/cv
 #set PATH=F:\\miktex\\texmfs\\install\\miktex\\bin:$PATH
 
 #set count=`git log --format="%H"`
-count=`git status --porcelain | wc --lines | tr --delete '\r' | tr --delete '\n' | tr --delete ' '`
+count=`git status --porcelain | wc -l | tr -d '\r' | tr -d '\n' | tr -d ' '`
 
 function generate {
     langue=$1
@@ -25,7 +26,7 @@ function generate {
 
 case $count in
 *)
-version=`git log --format="%H" -n 1 | tr --delete '\r' | tr --delete '\n' | tr --delete ' '` 
+version=`git log --format="%H" -n 1 | tr -d '\r' | tr -d '\n' | tr -d ' '`
 git log --format="%H" -n 1 > gitlog.tex
 rm -rf *.pdf
 rm -f $dropboxdir/cv*.pdf
