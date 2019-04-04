@@ -4,7 +4,6 @@ set -e
 set -x
 
 rm -rf out
-rm -rf *.pdf
 
 #dropboxdir=c:/users/laurent/dropbox/cv
 dropboxdir=/cygdrive/c/users/laurent/dropbox/cv

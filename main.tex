@@ -33,46 +33,38 @@
 \definecolor{fondentreprise}{rgb}{0.96, 0.94, 0.93}
 %\definecolor{fondentreprise}{rgb}{0.95,0.55,0.15}% orange
 \definecolor{amber}{rgb}{1.0, 0.75, 0.0}
-%\usepackage{amssymb}
 \usepackage{bbding}
 \usepackage{import}
 \usepackage{fancyhdr}
-\usepackage{fontawesome}
-%\usepackage[arrows]{boisik}
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{0.4pt}
 %\fancyhead[LE,RO]{\slshape \rightmark}
 \fancyfoot[L]{\tiny{git : \input{gitlog.tex}}}
 %\newcommand{\myvspace}{\\\\[6pt]}
 \newcommand{\myitem}[2]{\item{\textbf{#1} #2}\vspace{5pt}}
-\newcommand{\myhr}{\noindent\hfill{\rule{4cm}{0.4pt}}\hfill}
+\newcommand{\myhr}{\noindent\rule{15.7cm}{0.4pt}}
 
 
 %\newcommand\itemq{\item[\textbf{\textPsi}]}
 %\newcommand\itemq{\item[\textbf{\dstechnical}]}
 \newcommand\itemq{\item[\textbf{\Sparkle}]}
 
-%\usepackage{marvosym}
 \newcommand\itemformation{\item[\textbf{\dstechnical}]}
-%\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.1cm}}
-\newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2 \vspace{0.1cm}}
 
 \usepackage{allrunes}
 \usepackage{epiolmec}
 \usepackage{MnSymbol}
-%\newcommand\itemexperience{\item[\textcolor{orange}{\AsteriskThinCenterOpen}]}
+%\newcommand\itemexperience{\item[\AsteriskThinCenterOpen]}
 \newcommand\itemexperience{\item[]}
 
 \newcommand\cventrylc[6]{
-\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
-%\AsteriskThinCenterOpen\hspace*{0.2cm}
-\textit{#1}}\makebox[11.5cm][r]{\textbf{#3} \textit{\small{(#4)}}}}}
+\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{\textit{#1}}\makebox[10cm][r]{#3, #4}}}
 \newline
-\fcolorbox{white}{white}{\textbf{\textit{#2}}}
+\textbf{\textit{#2}}
 \newline
 {#5}{#6}
+\myhr
 %\myhr
-\vspace{0.5cm}
 }
 
 \input{langue.tex}
@@ -110,9 +102,6 @@
 
 %\geometry{left=0.2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}
 % Configure page margins with geometry
-
-
-\input{watermark}
 
 %----------------------------------------------------------------------------------
 %            content
