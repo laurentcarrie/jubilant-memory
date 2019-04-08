@@ -4,18 +4,18 @@ import os
 import shutil
 
 logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s -- %(levelname)s -- %(message)s')
+                    format='%(asctime)s -- %(name)s -- %(levelname)s -- %(message)s')
 
 dropboxdir="/cygdrive/c/users/laurent/dropbox/cv"
 dropboxdir="/Users/st5797/Dropbox/cv"
 
 
-def is_git_committed() -> bool :
+def is_git_modified() -> bool :
     ret = subprocess.run(['git','status','--porcelain'],stdout=subprocess.PIPE,check=True)
     ret = ret.stdout.decode('utf-8')
     ret = ret.split('\n')
     logging.info(ret)
-    return len(ret) == 1
+    return len(ret) != 0
 
 def git_version() -> str :
     ret = subprocess.run(['git', 'log', '--format=%H'], stdout=subprocess.PIPE, check=True)
@@ -24,7 +24,7 @@ def git_version() -> str :
     logging.info("version : '{0}'".format(ret))
     return ret
 
-is_git_committed = is_git_committed()
+is_git_modified = is_git_modified()
 git_version = git_version()
 
 def clean(d):
@@ -36,7 +36,7 @@ def clean(d):
         os.remove(fullpath)
 
 def generate(langue,version) :
-    if not is_git_committed:
+    if is_git_modified:
         version = 'draft'
 
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
@@ -45,11 +45,10 @@ def generate(langue,version) :
         fout.write(version)
         fout.write('\n')
 
-    with open('watermark.tex', 'w') as fout:
-        if not is_git_committed:
-            fout.write('\\usepackage{draftwatermark}')
-            fout.write('\\SetWatermarkText{draft}')
-            fout.write('\\SetWatermarkScale{1}')
+    with open('watermark.tex','w') as fout:
+        fout.write('\\usepackage{draftwatermark}')
+        fout.write('\\SetWatermarkText{draft}')
+        fout.write('\\SetWatermarkScale{1}')
 
     shutil.copyfile('langue-{0}.tex'.format(langue),'langue.tex')
 
@@ -59,8 +58,7 @@ def generate(langue,version) :
 
     shutil.copyfile('main.pdf',cvname)
     logging.info('generated {0}'.format(cvname))
-    if is_git_committed:
-       shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
+    shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
 
 
 
