@@ -4,7 +4,7 @@ import os
 import shutil
 
 logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s -- %(name)s -- %(levelname)s -- %(message)s')
+                    format='%(asctime)s -- %(levelname)s -- %(message)s')
 
 dropboxdir="/cygdrive/c/users/laurent/dropbox/cv"
 dropboxdir="/Users/st5797/Dropbox/cv"
