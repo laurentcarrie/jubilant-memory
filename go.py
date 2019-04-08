@@ -47,7 +47,8 @@ def generate(langue,version) :
 
     with open('watermark.tex','w') as fout:
         fout.write('\\usepackage{draftwatermark}')
-        fout.write('\\SetWatermarkText{draft}')
+        if is_git_modified:
+           fout.write('\\SetWatermarkText{draft}')
         fout.write('\\SetWatermarkScale{1}')
 
     shutil.copyfile('langue-{0}.tex'.format(langue),'langue.tex')
