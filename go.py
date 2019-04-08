@@ -15,7 +15,7 @@ def is_git_modified() -> bool :
     ret = ret.stdout.decode('utf-8')
     ret = ret.split('\n')
     logging.info(ret)
-    return len(ret) != 0
+    return len(ret) != 1
 
 def git_version() -> str :
     ret = subprocess.run(['git', 'log', '--format=%H'], stdout=subprocess.PIPE, check=True)
