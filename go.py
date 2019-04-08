@@ -10,12 +10,12 @@ dropboxdir="/cygdrive/c/users/laurent/dropbox/cv"
 dropboxdir="/Users/st5797/Dropbox/cv"
 
 
-def is_git_modified() -> bool :
+def is_git_committed() -> bool :
     ret = subprocess.run(['git','status','--porcelain'],stdout=subprocess.PIPE,check=True)
     ret = ret.stdout.decode('utf-8')
     ret = ret.split('\n')
     logging.info(ret)
-    return len(ret) != 1
+    return len(ret) == 1
 
 def git_version() -> str :
     ret = subprocess.run(['git', 'log', '--format=%H'], stdout=subprocess.PIPE, check=True)
@@ -24,7 +24,7 @@ def git_version() -> str :
     logging.info("version : '{0}'".format(ret))
     return ret
 
-is_git_modified = is_git_modified()
+is_git_committed = is_git_committed()
 git_version = git_version()
 
 def clean(d):
@@ -36,7 +36,7 @@ def clean(d):
         os.remove(fullpath)
 
 def generate(langue,version) :
-    if is_git_modified:
+    if not is_git_committed:
         version = 'draft'
 
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
@@ -46,7 +46,7 @@ def generate(langue,version) :
         fout.write('\n')
 
     with open('watermark.tex', 'w') as fout:
-        if is_git_modified:
+        if not is_git_committed:
             fout.write('\\usepackage{draftwatermark}')
             fout.write('\\SetWatermarkText{draft}')
             fout.write('\\SetWatermarkScale{1}')
@@ -59,7 +59,8 @@ def generate(langue,version) :
 
     shutil.copyfile('main.pdf',cvname)
     logging.info('generated {0}'.format(cvname))
-    shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
+    if is_git_committed:
+       shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
 
 
 
