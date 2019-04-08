@@ -45,11 +45,11 @@ def generate(langue,version) :
         fout.write(version)
         fout.write('\n')
 
-    with open('watermark.tex','w') as fout:
-        fout.write('\\usepackage{draftwatermark}')
+    with open('watermark.tex', 'w') as fout:
         if is_git_modified:
-           fout.write('\\SetWatermarkText{draft}')
-        fout.write('\\SetWatermarkScale{1}')
+            fout.write('\\usepackage{draftwatermark}')
+            fout.write('\\SetWatermarkText{draft}')
+            fout.write('\\SetWatermarkScale{1}')
 
     shutil.copyfile('langue-{0}.tex'.format(langue),'langue.tex')
 
