@@ -6,4 +6,6 @@
 *.gz
 *~
 gitlog.tex
+.idea/
+langue.tex
 
