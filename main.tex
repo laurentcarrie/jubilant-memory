@@ -15,7 +15,7 @@
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 \usepackage{textgreek}
 % adjust the page margins
-\usepackage[scale=1,top=1cm,bottom=1cm,left=0.5cm,right=0.5cm,includeheadfoot]{geometry}
+\usepackage[scale=1,top=1cm,bottom=1cm,left=1cm,right=1cm,includeheadfoot]{geometry}
 %\geometry{bindingoffset=2.1cm}
 
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
@@ -38,7 +38,7 @@
 \usepackage{graphicx}
 \usepackage{transparent}
 \usepackage{eso-pic}
-\backgroundsetup{contents={\includegraphics[width=5cm,angle=100]{img2.jpg}}}
+%\backgroundsetup{contents={\includegraphics[height=29cm]{img1b.jpg}}}
 %\AddToShipoutPicture*{
 %    \put(0,0){
 %        \parbox[b][\paperheight]{\paperwidth}{%
@@ -49,6 +49,8 @@
 %        }
 %    }
 %}
+
+
 
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -61,13 +63,15 @@
 
 %\newcommand\itemq{\item[\textbf{\textPsi}]}
 %\newcommand\itemq{\item[\textbf{\dstechnical}]}
+
+\usepackage{enumitem}
 \newcommand\itemq{\item[x]}
 \newcommand\itemmain{\item[]}
 
 %\usepackage{marvosym}
-\newcommand\itemformation{\item[\textbf{}]}
+\newcommand\itemformation{\item[]}
 %\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.1cm}}
-\newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2 \vspace{0.1cm}}
+\newcommand\itemskill[2]{\item[]\underline{\textit{#1}} : #2 \vspace{0.1cm}}
 
 %\usepackage{allrunes}
 %\usepackage{epiolmec}
@@ -76,7 +80,7 @@
 \newcommand\itemexperience{\item[]}
 
 \newcommand\cventry[6]{
-\transparent{0.5}\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
+\transparent{1}\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
 %\AsteriskThinCenterOpen\hspace*{0.2cm}
 \textit{#1}}\makebox[11.5cm][r]{\textbf{#3} \textit{\small{(#4)}}}}}
 \newline
@@ -88,6 +92,9 @@
 }
 
 \input{langue.tex}
+
+\newlist{main}{description}{2}
+\setlist[main]{leftmargin=1cm,labelindent=0cm,align=left,style=nextline}
 
 
 % personal data
@@ -102,20 +109,6 @@
 % optional, remove / comment the line if not wanted
 %\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
 \newcommand\extrainfo{nationalité française}
-%\photo[64pt][0.4pt]{id.jpg}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
-
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
-%\makeatletter
-%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\makeatother
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
-
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
-
-% Configure page margins with geometry
 
 %\input{watermark}
 
@@ -127,28 +120,25 @@
 %{\transparent{0.4}\includegraphics[width=5cm,angle=-30]{img1b.jpg}}
 
 
-    \begin{itemize}
-
-        \itemmain[formation]
+        [education]
         \input{education.tex}
 
-        \itemmain[experience]
+        [experience]
         \input{experience.tex}
 
-        \itemmain[competences]
+        [competences]
         \input{competences.tex}
 
-        \itemmain[languages]
+        [languages]
         \input{languages.tex}
 
-        \itemmain[interests]
+        [interests]
         \input{interets.tex}
 
-        \itemmain[references]
+        [references]
         \input{references.tex}
 
 
-    \end{itemize}
 
 \end{document}
 
