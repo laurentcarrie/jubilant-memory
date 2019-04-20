@@ -54,7 +54,7 @@ def generate(langue,version) :
 
     shutil.copyfile('langue-{0}.tex'.format(langue),'langue.tex')
 
-    ret = subprocess.run(['pdflatex', 'main.tex'], stderr=subprocess.PIPE,check=False)
+    ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE,check=False)
     ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
 

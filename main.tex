@@ -15,7 +15,7 @@
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 \usepackage{textgreek}
 % adjust the page margins
-%\usepackage[scale=1,top=1cm,bottom=1cm,left=0.5cm,right=0.5cm,includeheadfoot]{geometry}
+\usepackage[scale=1,top=1cm,bottom=1cm,left=0.5cm,right=0.5cm,includeheadfoot]{geometry}
 %\geometry{bindingoffset=2.1cm}
 
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
@@ -34,8 +34,21 @@
 %\usepackage[arrows]{boisik}
 %\geometry{left=0.2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}
 
-%\usepackage{background}
-%\backgroundsetup{contents={\includegraphics{img1.jpg}}}
+\usepackage{background}
+\usepackage{graphicx}
+\usepackage{transparent}
+\usepackage{eso-pic}
+\backgroundsetup{contents={\includegraphics[width=5cm,angle=100]{img2.jpg}}}
+%\AddToShipoutPicture*{
+%    \put(0,0){
+%        \parbox[b][\paperheight]{\paperwidth}{%
+%            \vfill
+%            \centering
+%            {\transparent{0.4}\includegraphics[height=29cm]{img1b.jpg}}%
+%            \vfill
+%        }
+%    }
+%}
 
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -52,7 +65,7 @@
 \newcommand\itemmain{\item[]}
 
 %\usepackage{marvosym}
-\newcommand\itemformation{\item[\textbf{Z}]}
+\newcommand\itemformation{\item[\textbf{}]}
 %\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.1cm}}
 \newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2 \vspace{0.1cm}}
 
@@ -63,7 +76,7 @@
 \newcommand\itemexperience{\item[]}
 
 \newcommand\cventry[6]{
-\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
+\transparent{0.5}\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
 %\AsteriskThinCenterOpen\hspace*{0.2cm}
 \textit{#1}}\makebox[11.5cm][r]{\textbf{#3} \textit{\small{(#4)}}}}}
 \newline
@@ -104,13 +117,15 @@
 
 % Configure page margins with geometry
 
-\input{watermark}
+%\input{watermark}
 
 
 
 %\usepackage{setspace}
 
 \begin{document}
+%{\transparent{0.4}\includegraphics[width=5cm,angle=-30]{img1b.jpg}}
+
 
     \begin{itemize}
 
