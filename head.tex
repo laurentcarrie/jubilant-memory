@@ -1,4 +1,3 @@
-
 %\usepackage{fontawesome}
 
 \newcommand*{\cvnamefont}{\fontsize{34}{36}\mdseries\upshape}
@@ -6,14 +5,21 @@
 
 \newcommand\cvhead{
 \begin{center}
-    % le nom
+% le nom
 %    \setlength{\headwidth}{20cm}
-    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\cvnamefont{\textcolor{cvorange}{\cvname}}}}
-    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{{\textcolor{cvorange}{\cvjobtitle}}}}
-    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faLinkedin \enspace \cvlinkedin}}
-    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faMobilePhone \enspace \cvmobilephone}}
-    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faEnvelopeO \enspace \cvemail}}
-    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faHome \enspace \cvaddress}}
+\fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\cvnamefont{\textcolor{cvorange}{\cvname}}}}
+\fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\textcolor{cvorange}{\cvjobtitle}}}
+
+\fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{
+\makebox[\cvheadwidth]{
+\makebox[\cvhalfheadwidth][l]{\faLinkedin \enspace \cvlinkedin}
+\makebox[\cvhalfheadwidth][r]{\faEnvelopeO \enspace \cvemail}
+}}
+
+\fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{
+\makebox[\cvhalfheadwidth][l]{\faMobilePhone \enspace \cvmobilephone}
+\makebox[\cvhalfheadwidth][r]{\faHome \enspace \cvaddress}
+}
 
 
 \end{center}
