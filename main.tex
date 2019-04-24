@@ -7,7 +7,7 @@
 
 
 \documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
-
+%\usepackage[usenames,dvipsnames]{xcolor}
 %\moderncvstyle{perso}
 % modern themes
 \moderncvstyle{banking}                            
@@ -26,6 +26,22 @@
 \usepackage[scale=0.75]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+
+\newlength{\cvheadwidth}
+\newlength{\cvgeomright}
+\newlength{\cvgeomleft}
+\newlength{\cvgeomtop}
+\newlength{\cvgeombottom}
+
+
+
+\input{head.tex}
+
+
+\definecolor{yellow(process)}{rgb}{1.0, 0.94, 0.0}
+\definecolor{tearose(rose)}{rgb}{0.96, 0.76, 0.76}
+\definecolor{turquoisegreen}{rgb}{0.63, 0.84, 0.71}
 
 %\usepackage{draftwatermark}
 %\SetWatermarkText{DRAFT}
@@ -62,7 +78,6 @@
 \usepackage{MnSymbol}
 %\newcommand\itemexperience{\item[\textcolor{orange}{\AsteriskThinCenterOpen}]}
 \newcommand\itemexperience{\item[]}
-
 \newcommand\cventrylc[6]{
 \fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
 %\AsteriskThinCenterOpen\hspace*{0.2cm}
@@ -108,7 +123,6 @@
 %\usepackage{multibib}
 %\newcites{book,misc}{{Books},{Others}}
 
-%\geometry{left=0.2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}
 % Configure page margins with geometry
 
 
@@ -121,23 +135,18 @@
 \usepackage{setspace}
 
 %\input{patch-makehead.tex}
-  
+
+\input{parameters}
+\geometry{left=\cvgeomleft, top=\cvgeomtop, right=\cvgeomright, bottom=\cvgeombottom, footskip=.5cm}
+
 \begin{document}
-%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
-%-----       resume       ---------------------------------------------------------
-%\makecvtitle
-%\includegraphics[width=3cm]{id.jpg}
-\begin{picture}(0,0)
-\setlength{\unitlength}{1cm}
-%\put(-0.2,-1.5){\includegraphics[scale=0.05]{id.jpg}}
-\end{picture}
-\makehead
 
-%\makecvtitle
 
-%\includegraphics[width=1cm]{id.jpg}
 
-%\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
+\input{colors.tex}
+\cvhead
+
+%\makehead
 
 %\small{ingénieur diplômé,}
 %\begin{spacing}{1.2}
@@ -148,11 +157,6 @@
 \input{languages.tex}
 \input{interets.tex}
 \vspace{3pt}
-
-%\small{This challenging project took place over the entirety of my third year. It required excellent planning and organisational skills, and the ability to teach myself an entirely new and complex subject. The project was a success, with the system being able to localise a radioactive source down to $ 3 cm$ within a $ 600 m^3$ sensor array. This project has been suggested for publication by my supervisor.}
-
-%\vspace{6pt}
-%\input{autres-interets.tex}
 
 
 \iftoggle{anglais}

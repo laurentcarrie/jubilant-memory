@@ -1,0 +1,21 @@
+
+%\usepackage{fontawesome}
+
+\newcommand*{\cvnamefont}{\fontsize{34}{36}\mdseries\upshape}
+
+
+\newcommand\cvhead{
+\begin{center}
+    % le nom
+%    \setlength{\headwidth}{20cm}
+    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\cvnamefont{\textcolor{cvorange}{\cvname}}}}
+    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{{\textcolor{cvorange}{\cvjobtitle}}}}
+    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faLinkedin \enspace \cvlinkedin}}
+    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faMobilePhone \enspace \cvmobilephone}}
+    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faEnvelopeO \enspace \cvemail}}
+    \fcolorbox{\cvheadboxcolor}{\cvheadboxfondcolor}{\makebox[\cvheadwidth]{\faHome \enspace \cvaddress}}
+
+
+\end{center}
+}
+
