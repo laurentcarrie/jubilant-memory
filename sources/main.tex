@@ -6,14 +6,12 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,a4paper,roman]{article}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 %\usepackage[usenames,dvipsnames]{xcolor}
 %\moderncvstyle{perso}
 % modern themes
-\moderncvstyle{banking}                            
-%\moderncvstyle{casual}                            
+%\moderncvstyle{casual}
 % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{orange}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
@@ -26,7 +24,8 @@
 \usepackage[scale=0.75]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-
+\usepackage{xcolor}
+\usepackage{hyperref}
 
 \newlength{\cvheadwidth}
 \newlength{\cvhalfheadwidth}
@@ -34,8 +33,18 @@
 \newlength{\cvgeomleft}
 \newlength{\cvgeomtop}
 \newlength{\cvgeombottom}
+\usepackage{lastpage}
 
 
+\usepackage[sf,sl,outermarks,explicit]{titlesec}
+
+\titleformat{\section}
+{\sffamily\slshape}
+{[#1]}{3em}{}
+
+
+\titlespacing{\section}
+{-1cm}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
 
 \input{head.tex}
 
@@ -44,9 +53,7 @@
 \definecolor{tearose(rose)}{rgb}{0.96, 0.76, 0.76}
 \definecolor{turquoisegreen}{rgb}{0.63, 0.84, 0.71}
 
-%\usepackage{draftwatermark}
-%\SetWatermarkText{DRAFT}
-%\SetWatermarkScale{1}
+
 \definecolor{fondentreprise}{rgb}{0.96, 0.94, 0.93}
 %\definecolor{fondentreprise}{rgb}{0.95,0.55,0.15}% orange
 \definecolor{amber}{rgb}{1.0, 0.75, 0.0}
@@ -56,62 +63,39 @@
 \usepackage{fancyhdr}
 \usepackage{fontawesome}
 %\usepackage[arrows]{boisik}
+
+
+\input{parameters}
+\geometry{left=\cvgeomleft, top=\cvgeomtop, right=\cvgeomright, bottom=\cvgeombottom, footskip=.5cm}
+
 \pagestyle{fancy}
+\renewcommand{\footrule}{\vbox to 0pt{\hbox to\headwidth{\dotfill}\vss}}
 \renewcommand{\footrulewidth}{0.4pt}
-%\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyhead[C]{\textit{curriculum vitae}}
+\fancyhead[R]{\tiny{\textit{\today}}}
 \fancyfoot[L]{\tiny{git : \input{gitlog.tex}}}
-%\newcommand{\myvspace}{\\\\[6pt]}
-\newcommand{\myitem}[2]{\item{\textbf{#1} #2}\vspace{5pt}}
-\newcommand{\myhr}{\noindent\hfill{\rule{4cm}{0.4pt}}\hfill}
+\fancyfoot[R]{page \thepage~/~\pageref{LastPage}}
+\fancyfoot[C]{}
 
 
-%\newcommand\itemq{\item[\textbf{\textPsi}]}
-%\newcommand\itemq{\item[\textbf{\dstechnical}]}
-\newcommand\itemq{\item[\textbf{\Sparkle}]}
+%\usepackage[Sonny]{fncychap}
 
 %\usepackage{marvosym}
-\newcommand\itemformation{\item[\textbf{\dstechnical}]}
-%\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.1cm}}
-\newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2 \vspace{0.1cm}}
+%\newcommand\itemformation{\item[\textbf{\faUniversity}]}
+\newcommand\itemformation{\item[\textbf{\faGraduationCap}]}
 
+%\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.1cm}}
+\newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2}
+
+
+\usepackage{etoolbox}
 \usepackage{allrunes}
 \usepackage{epiolmec}
 \usepackage{MnSymbol}
 %\newcommand\itemexperience{\item[\textcolor{orange}{\AsteriskThinCenterOpen}]}
-\newcommand\itemexperience{\item[]}
-\newcommand\cventrylc[6]{
-\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
-%\AsteriskThinCenterOpen\hspace*{0.2cm}
-\textit{#1}}\makebox[11.5cm][r]{\textbf{#3} \textit{\small{(#4)}}}}}
-\newline
-\fcolorbox{white}{white}{\textbf{\textit{#2}}}
-\newline
-{#5}{#6}
-%\myhr
-\vspace{0.5cm}
-}
+\newcommand\itemexperience{\item[\faTerminal]}
 
 \input{langue.tex}
-%\newtoggle{anglais}
-%\toggletrue{anglais}
-
-% personal data
-\name{Laurent}{Carrié}
-\vspace{5pt}
-
-%\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
-
-\address{Senior Software Architect}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+33 (0)6 76 47 92 42}                   % optional, remove / comment the line if not wanted
-%\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
-%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{laurent.carrie@gmail.com}                               % optional, remove / comment the line if not wanted
-%\homepage{www.myname.webs.com} 
-\social[linkedin]{laurent-carrie}
-% optional, remove / comment the line if not wanted
-%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
-\extrainfo{nationalité française}
-
 
 \input{watermark}
 
@@ -123,8 +107,6 @@
 
 %\input{patch-makehead.tex}
 
-\input{parameters}
-\geometry{left=\cvgeomleft, top=\cvgeomtop, right=\cvgeomright, bottom=\cvgeombottom, footskip=.5cm}
 
 \begin{document}
 
@@ -133,10 +115,6 @@
 \input{colors.tex}
 \cvhead
 
-%\makehead
-
-%\small{ingénieur diplômé,}
-%\begin{spacing}{1.2}
 \input{education.tex}
 \input{experience.tex}
 %\newpage

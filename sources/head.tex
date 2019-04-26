@@ -1,0 +1,57 @@
+%\usepackage{fontawesome}
+
+\newcommand*{\cvnamefont}{\fontsize{34}{36}\mdseries\upshape}
+
+
+\newcommand\cvhead{
+\begin{center}
+% le nom
+%    \setlength{\headwidth}{20cm}
+\makebox[\cvheadwidth]{\cvnamefont{\textcolor{cvorange}{\cvname}}}
+\vspace{6pt}
+
+\makebox[\cvheadwidth]{\textcolor{cvorange}{\cvjobtitle}}
+\vspace{6pt}
+
+\makebox[\cvheadwidth]{
+\makebox[\cvhalfheadwidth][l]{\faLinkedin \enspace \cvlinkedin}
+\makebox[\cvhalfheadwidth][r]{\faEnvelopeO \enspace \cvemail}
+}
+
+\makebox[\cvheadwidth]{
+\makebox[\cvhalfheadwidth][l]{\faMobilePhone \enspace \cvmobilephone}
+\makebox[\cvhalfheadwidth][r]{\faHome \enspace \cvaddress}
+}
+
+
+\end{center}
+}
+
+
+
+
+
+
+\newcommand\cventry[6]{
+\fcolorbox{white}{fondentreprise}{\makebox[15.5cm]{\makebox [4cm][l]{
+%\AsteriskThinCenterOpen\hspace*{0.2cm}
+\textit{#1}}\makebox[11.5cm][r]{\textbf{#3} \textit{\small{(#4)}}}}}
+\newline
+\fcolorbox{white}{white}{\textbf{\textit{#2}}}
+\newline
+{#5}{#6}
+%\myhr
+\vspace{0.5cm}
+}
+
+\newcommand\cventryformation[6]{
+\fcolorbox{white}{fondentreprise}{\makebox[15.5cm][l]{
+\textbf{#3} \textit{\small{(#4)}}}}
+\newline
+\fcolorbox{white}{white}{\textbf{\textit{#2}}}
+\newline
+{#5}{#6}
+%\myhr
+\vspace{0.5cm}
+}
+
