@@ -56,14 +56,17 @@ def generate(langue,version) :
 
     shutil.copyfile('langue-{0}.tex'.format(langue),'langue.tex')
 
-    ret = subprocess.run(['pdflatex', 'main.tex'], stderr=subprocess.PIPE, check=True)
+    ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
 
     shutil.copyfile('main.pdf',cvname)
     logging.info('generated {0}'.format(cvname))
     if is_git_committed:
-       shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
+        logging.info("copy to dropbox")
+        shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
+    else:
+        logging.info("files not committed, NO copy to dropbox")
 
 
 
