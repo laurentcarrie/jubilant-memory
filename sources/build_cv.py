@@ -6,8 +6,9 @@ import shutil
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s -- %(levelname)s -- %(message)s')
 
-dropboxdir="c:\\Users\\laure\\Dropbox\\cv"
+#dropboxdir="c:\\Users\\laure\\Dropbox\\cv"
 #dropboxdir="/Users/st5797/Dropbox/cv"
+dropboxdir="/Dropbox/cv"
 
 
 def is_git_committed() -> bool :

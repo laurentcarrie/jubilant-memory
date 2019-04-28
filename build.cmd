@@ -1,0 +1,1 @@
+docker run -it -v c:\Users\laure\work\jubilant-memory:/usr/src/work -v c:\Users\laure\Dropbox:/Dropbox lolocv:latest

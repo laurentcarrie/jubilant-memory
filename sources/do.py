@@ -23,7 +23,7 @@ class Container:
         ret = subprocess.run(['docker','ps','-a','--format',""'{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}'""],stdout=subprocess.PIPE,check=True)
         data = ret.stdout.decode('utf-8')
         data = data.split('\n')
-        data=data[0:(len(data)-1K)]
+        data=data[0:(len(data)-1)]
         data = [ line.split('\t') for line in data]
         data = [Container(l) for l in data]
         return data
@@ -33,8 +33,36 @@ class Container:
         logging.info(ret)
         data = ret.stdout.decode('utf-8')
 
+class Image:
+    def __init__(self,data):
+        assert(type(data) is list)
+        assert(len(data) == 3)
+        logging.info(data)
+        self.id = data[0]
+        self.repository = data[1]
+        self.tag = data[2]
 
-l = Container.all()
-for c in l:
-    logging.info(c.status)
-    c.rm()
+    @staticmethod
+    def all()  :
+        ret = subprocess.run(['docker','images','-a','--format',""'{{.ID}}\t{{.Repository}}\t{{.Tag}}'""],stdout=subprocess.PIPE,check=True)
+        data = ret.stdout.decode('utf-8')
+        data = data.split('\n')
+        data=data[0:(len(data)-1)]
+        data = [ line.split('\t') for line in data]
+        logging.info(data)
+        data = [Image(l) for l in data]
+        return data
+
+    def rm(self):
+        ret = subprocess.run(['docker','image','rm','-f',self.id],stdout=subprocess.PIPE,check=True)
+        logging.info(ret)
+        data = ret.stdout.decode('utf-8')
+
+def rm_all():
+    l = Container.all()
+    for i in l :
+        i.rm()
+
+    l = Image.all()
+    for i in l:
+        i.rm()
