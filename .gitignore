@@ -9,4 +9,6 @@ gitlog.tex
 .idea/
 langue.tex
 watermark.tex
+*.jpg
+log.txt
 
