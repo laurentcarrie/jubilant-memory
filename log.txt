@@ -1,0 +1,55 @@
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+529b8139b38e        lolocv:latest       "/bin/sh"                20 hours ago        Exited (0) 20 hours ago                         lolo
+e8646b6637d5        lolocv:latest       "/bin/sh"                20 hours ago        Exited (0) 20 hours ago                         sad_lewin
+7746207c8d88        lolocv:latest       "--mount source=sour…"   20 hours ago        Created                                         priceless_ishizaka
+2fcbe7ebd986        lolocv:latest       "/bin/sh"                20 hours ago        Exited (0) 20 hours ago                         serene_bhabha
+65da11c55822        d98aa1f76f1e        "/bin/sh"                21 hours ago        Exited (0) 21 hours ago                         stoic_poitras
+07c4e0d379bf        cdf98d1859c1        "/bin/sh -c 'apk add…"   21 hours ago        Exited (1) 21 hours ago                         recursing_merkle
+28734e5f96b3        cdf98d1859c1        "/bin/sh -c 'apk add…"   21 hours ago        Exited (2) 21 hours ago                         sad_engelbart
+6c9304cfa419        cdf98d1859c1        "/bin/sh -c 'apk add…"   21 hours ago        Exited (2) 21 hours ago                         eager_wing
+23ea5b546941        65a6d20cb971        "/bin/sh"                21 hours ago        Exited (0) 21 hours ago                         agitated_swartz
+1898e269ab3c        65a6d20cb971        "/bin/sh"                21 hours ago        Exited (127) 21 hours ago                       hungry_matsumoto
+94032ce872d2        cdf98d1859c1        "/bin/sh -c 'apk add…"   21 hours ago        Exited (2) 21 hours ago                         dazzling_bell
+070695c0df40        65a6d20cb971        "/bin/sh"                21 hours ago        Exited (127) 21 hours ago                       brave_edison
+f507aace0bf2        cdf98d1859c1        "/bin/sh -c 'apk add…"   23 hours ago        Exited (24) 23 hours ago                        peaceful_galileo
+f317b4cc14e0        65a6d20cb971        "/bin/sh"                23 hours ago        Exited (130) 23 hours ago                       adoring_agnesi
+d6d8d41fe0aa        c9a8cf7adfcf        "/bin/bash"              24 hours ago        Exited (130) 23 hours ago                       hungry_williamson
+1cc76db70d3a        c9a8cf7adfcf        "/bin/bash"              24 hours ago        Exited (127) 24 hours ago                       unruffled_archimedes
+fd37e7dd5568        cfb7a5cfa7c9        "/bin/bash"              24 hours ago        Exited (100) 24 hours ago                       flamboyant_torvalds
+88017f56aeb9        cfb7a5cfa7c9        "/bin/bash"              24 hours ago        Exited (100) 24 hours ago                       pedantic_wu
+65c8e2d5210e        d1b55fd07600        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       silly_lumiere
+4514a858dff2        d1b55fd07600        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       recursing_brown
+5bbd1098d43b        d1b55fd07600        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (1) 24 hours ago                         elated_spence
+8aaef0312f76        d1b55fd07600        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       stoic_shannon
+ef654ee2fe27        d1b55fd07600        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       vigorous_snyder
+933fe6b99463        4e8f9e23d7f3        "/bin/bash"              24 hours ago        Exited (100) 24 hours ago                       jovial_davinci
+d1033443b676        390582d83ead        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       elated_wiles
+da7af69d63a9        4e8f9e23d7f3        "/bin/bash"              24 hours ago        Exited (127) 24 hours ago                       goofy_beaver
+75f73f5b11f9        c9a8cf7adfcf        "/bin/bash"              24 hours ago        Exited (127) 24 hours ago                       amazing_pike
+5b16a7d4191c        c9a8cf7adfcf        "/bin/bash"              24 hours ago        Exited (0) 24 hours ago                         frosty_euler
+fc9b8e7b6710        20bb25d32758        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       jolly_kalam
+b953170f2cb7        20bb25d32758        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       quizzical_heisenberg
+c4dc32ea0911        20bb25d32758        "/bin/sh -c 'apt-get…"   24 hours ago        Exited (100) 24 hours ago                       pedantic_mestorf
+73eb017e7fc8        c9a8cf7adfcf        "/bin/bash"              25 hours ago        Exited (0) 24 hours ago                         angry_kalam
+51096ef77bf4        65a6d20cb971        "/bin/sh"                25 hours ago        Exited (1) 25 hours ago                         hungry_lichterman
+efd57c646bca        9a0c3496ef1f        "python /usr/src/app…"   25 hours ago        Created                                         clever_austin
+1c0759a93a8c        9a0c3496ef1f        "python /usr/src/app…"   25 hours ago        Created                                         gallant_perlman
+996c396d347e        alpine:latest       "/bin/sh"                25 hours ago        Exited (0) 25 hours ago                         serene_tharp
+4b39f9b42229        alpine:latest       "bash"                   25 hours ago        Created                                         hungry_goldberg
+af6e2d2acfbd        alpine              "bash"                   25 hours ago        Created                                         keen_dubinsky
+2c38d016caba        9a0c3496ef1f        "python /usr/src/app…"   25 hours ago        Created                                         focused_payne
+392f46ddbc9f        266cf4e004bb        "/bin/sh -c 'ls -R /…"   25 hours ago        Exited (1) 25 hours ago                         focused_bhaskara
+4ce9b0fe9fc8        9fd2327f4661        "/bin/sh -c 'pip ins…"   25 hours ago        Exited (127) 25 hours ago                       agitated_yalow
+5b1022d46310        cdf98d1859c1        "/bin/sh -c 'apk add…"   25 hours ago        Exited (1) 25 hours ago                         festive_feistel
+eb65cd430bf7        f80194ae2e0c        "/bin/sh -c 'apk add…"   25 hours ago        Exited (1) 25 hours ago                         tender_matsumoto
+8fe96ba93c78        alpine              "ls -i"                  25 hours ago        Exited (0) 25 hours ago                         upbeat_neumann
+a30b9cb6a9e0        hello-world         "/hello"                 43 hours ago        Exited (0) 43 hours ago                         laughing_khorana
+e687ef9b13d9        3f53bb00af94        "--help"                 43 hours ago        Created                                         adoring_proskuriakova
+cd5dc5e77bbb        3f53bb00af94        "/bin/sh"                43 hours ago        Exited (0) 43 hours ago                         focused_heisenberg
+21325dc75f9e        hello-world         "/hello"                 43 hours ago        Exited (0) 43 hours ago                         jolly_brown
+2b829535922d        3f53bb00af94        "/bin/sh"                2 months ago        Exited (255) 2 months ago                       flamboyant_bose
+09b624e7a46e        ubuntu              "/bin/bash"              2 months ago        Exited (130) 2 months ago                       optimistic_hermann
+6e6a6c11a1ca        ubuntu              "/bin/bash"              2 months ago        Exited (255) 2 months ago                       relaxed_morse
+97390c3ceb78        hello-world         "/hello"                 2 months ago        Exited (0) 2 months ago                         condescending_poincare
+7504cc29bf18        ubuntu              "bash"                   2 months ago        Exited (0) 2 months ago                         thirsty_stonebraker
+f9c0055b0691        hello-world         "/hello"                 2 months ago        Exited (0) 2 months ago                         wizardly_cartwright
