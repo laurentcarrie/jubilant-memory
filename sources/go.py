@@ -3,9 +3,11 @@ import logging
 import os
 
 logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s -- %(process)d -- %(levelname)s -- %(message)s')
+                    format='%(asctime)s -- %(process)d -- %(levelname)s -- %(filename)s:%(lineno)d => %(message)s')
 
-dockerfile_path = os.path.dirname(os.path.dirname(__file__))
+dockerfile_path = os.path.abspath(__file__)
+dockerfile_path = os.path.dirname(os.path.dirname(dockerfile_path))
+logging.info("dockerfile_path : '{0}'".format(dockerfile_path))
 
 def is_git_committed() -> bool:
     ret = subprocess.run(['git', 'status', '--porcelain'], stdout=subprocess.PIPE, check=True)
@@ -44,31 +46,34 @@ def prepare():
         fout.write('\n')
 
 
+def run_docker():
+    logging.info("build docker image")
+    ret = subprocess.run(['docker', 'build',
+                          '-t', 'lolocv', dockerfile_path],
+                         stderr=subprocess.PIPE,
+                         #                     stdout=subprocess.PIPE,
+                         check=True)
+
+    ret = ret.stderr.decode('utf-8')
+    ret = ret.split('\n')
+    logging.info("run container done")
+    print(ret)
+
+    ret = subprocess.run(['docker', 'run',
+                          '-v', 'c:\\Users\\laure\\work\\jubilant-memory:/usr/src/work',
+                          '-v', 'c:\\Users\\laure\\Dropbox:/Dropbox',
+                          'lolocv:latest'],
+                         stderr=subprocess.PIPE,
+                         #                     stdout=subprocess.PIPE,
+                         check=True)
+
+    ret = ret.stderr.decode('utf-8')
+    ret = ret.split('\n')
+    logging.info("run container done")
+    print(ret)
+
+
 prepare()
 
 logging.info("prepare done")
 
-logging.info("build docker image")
-ret = subprocess.run(['docker', 'build',
-                      '-t', 'lolocv',dockerfile_path],
-                     stderr=subprocess.PIPE,
-                     #                     stdout=subprocess.PIPE,
-                     check=True)
-
-ret = ret.stderr.decode('utf-8')
-ret = ret.split('\n')
-logging.info("run container done")
-print(ret)
-
-ret = subprocess.run(['docker', 'run',
-                      '-v', 'c:\\Users\\laure\\work\\jubilant-memory:/usr/src/work',
-                      '-v', 'c:\\Users\\laure\\Dropbox:/Dropbox',
-                      'lolocv:latest'],
-                     stderr=subprocess.PIPE,
-                     #                     stdout=subprocess.PIPE,
-                     check=True)
-
-ret = ret.stderr.decode('utf-8')
-ret = ret.split('\n')
-logging.info("run container done")
-print(ret)

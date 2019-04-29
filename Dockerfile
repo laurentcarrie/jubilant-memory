@@ -12,4 +12,7 @@ RUN apk add python3 git texlive-full
 #RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
 WORKDIR /usr/src/work/sources
-CMD ["python3", "build_cv.py"]
+
+RUN git clone https://github.com/laurentcarrie/jubilant-memory.git
+
+#CMD ["python3", "build_cv.py"]
