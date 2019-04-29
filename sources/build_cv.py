@@ -4,30 +4,13 @@ import os
 import shutil
 
 logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s -- %(levelname)s -- %(message)s')
+                    format='%(asctime)s -- %(process)d -- %(levelname)s -- %(message)s')
 
 #dropboxdir="c:\\Users\\laure\\Dropbox\\cv"
 #dropboxdir="/Users/st5797/Dropbox/cv"
 dropboxdir="/Dropbox/cv"
 
 
-def is_git_committed() -> bool :
-    ret = subprocess.run(['git','status','--porcelain'],stdout=subprocess.PIPE,check=True)
-    ret = ret.stdout.decode('utf-8')
-    ret = ret.split('\n')
-    is_committed = (len(ret) == 1)
-    logging.info("is committed : {0}, files : {1}".format(is_committed,ret))
-    return is_committed
-
-def git_version() -> str :
-    ret = subprocess.run(['git', 'log', '--format=%H'], stdout=subprocess.PIPE, check=True)
-    ret = ret.stdout.decode('utf-8')
-    ret = ret.split('\n')[0]
-    logging.info("version : '{0}'".format(ret))
-    return ret
-
-is_git_committed = is_git_committed()
-git_version = git_version()
 
 def clean(d):
     files = os.listdir(d)
@@ -38,18 +21,18 @@ def clean(d):
         logging.info("remove {0}".format(fullpath))
         os.remove(fullpath)
 
-def generate(langue,version) :
-    if not is_git_committed:
-        version = 'draft'
+
+def generate(langue) :
+    version = 'xxxx'
+    with open('gitlog.tex','r') as fin:
+        version = fin.readline().strip('\n')
+
 
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
 
-    with open('gitlog.tex','w') as fout:
-        fout.write(version)
-        fout.write('\n')
 
     with open('watermark.tex', 'w') as fout:
-        if not is_git_committed:
+        if version == 'draft':
             fout.write('\\usepackage{draftwatermark}')
             fout.write('\\SetWatermarkText{draft}')
             fout.write('\\SetWatermarkScale{1}')
@@ -62,18 +45,14 @@ def generate(langue,version) :
 
     shutil.copyfile('main.pdf',cvname)
     logging.info('generated {0}'.format(cvname))
-    if is_git_committed:
-        logging.info("copy to dropbox")
-        shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
-    else:
-        logging.info("files not committed, NO copy to dropbox")
-
+    logging.info("copy to dropbox")
+    shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
 
 
 clean(".")
 clean(dropboxdir)
 
-generate('english',git_version)
-generate('francais',git_version)
+generate('english')
+generate('francais')
 
 
