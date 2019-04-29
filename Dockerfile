@@ -14,5 +14,7 @@ RUN apk add python3 git texlive-full
 WORKDIR /usr/src/work/sources
 
 RUN git clone https://github.com/laurentcarrie/jubilant-memory.git
+WORKDIR /usr/src/work/sources/jubilant-memory
+RUN git checkout moderncv-style
 
 #CMD ["python3", "build_cv.py"]
