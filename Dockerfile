@@ -13,9 +13,10 @@ RUN apk add python3 git texlive-full vim
 
 WORKDIR /usr/src/work/sources
 
-RUN git clone https://github.com/laurentcarrie/jubilant-memory.git
+CMD ["git","clone","https://github.com/laurentcarrie/jubilant-memory.git"]
 WORKDIR /usr/src/work/sources/jubilant-memory
-RUN git checkout moderncv-style
+CMD ["git","checkout","moderncv-style"]
 CMD ["git","pull"]
+CMD ["ls","/usr/src/work/sources/jubilant-memory/py"]
 WORKDIR /usr/src/work/sources/jubilant-memory/sources
 CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/all.py"]
