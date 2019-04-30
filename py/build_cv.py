@@ -35,7 +35,8 @@ def generate(langue, texdir, dropboxdir):
             fout.write('\\SetWatermarkText{draft}')
             fout.write('\\SetWatermarkScale{1}')
 
-    shutil.copyfile('langue-{0}.tex'.format(langue), 'langue.tex')
+    shutil.copyfile(os.path.join(texdir,'langue-{0}.tex'.format(langue)),
+                    os.path.join(texdir,'langue.tex'))
 
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
