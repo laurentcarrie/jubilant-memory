@@ -36,12 +36,15 @@ def clean(d):
         os.remove(fullpath)
 
 
-def prepare():
+def prepare(texdir):
+    logging.info("prepare")
     version = git_version()
     if not is_git_committed():
         logging.info("is not committed")
         version = 'draft'
-    with open('gitlog.tex', 'w') as fout:
+    filename = os.path.join(texdir,'gitlog.tex')
+    with open(filename, 'w') as fout:
+        logging.info("write {0}".format(filename))
         fout.write(version)
         fout.write('\n')
 
@@ -73,7 +76,8 @@ def run_docker():
     print(ret)
 
 
-prepare()
+if __name__ == "__main__":
+    texdir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'latex')
+    prepare(texdir)
 
-logging.info("prepare done")
 

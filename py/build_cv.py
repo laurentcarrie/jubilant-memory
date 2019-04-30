@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO,
 
 #dropboxdir="c:\\Users\\laure\\Dropbox\\cv"
 #dropboxdir="/Users/st5797/Dropbox/cv"
-dropboxdir="/Dropbox/cv"
+#dropboxdir="/Dropbox/cv"
 
 
 
@@ -22,7 +22,7 @@ def clean(d):
         os.remove(fullpath)
 
 
-def generate(langue) :
+def generate(langue,dropboxdir) :
     version = 'xxxx'
     with open('gitlog.tex','r') as fin:
         version = fin.readline().strip('\n')
@@ -49,10 +49,11 @@ def generate(langue) :
     shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
 
 
-clean(".")
-clean(dropboxdir)
-
-generate('english')
-generate('francais')
+if __name__== '__main__':
+    clean(".")
+    dropboxdir='/Dropbox/cv'
+    clean(dropboxdir)
+    generate('english',dropboxdir)
+    generate('francais',dropboxdir)
 
 
