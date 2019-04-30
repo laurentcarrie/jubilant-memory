@@ -11,4 +11,4 @@ langue.tex
 watermark.tex
 *.jpg
 log.txt
-
+py/__pycache__
