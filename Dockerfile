@@ -17,5 +17,6 @@ RUN git clone https://github.com/laurentcarrie/jubilant-memory.git
 WORKDIR /usr/src/work/sources/jubilant-memory
 RUN git checkout moderncv-style
 CMD ["git","pull"]
-
-#CMD ["python3", "build_cv.py"]
+WORKDIR /usr/src/work/sources/jubilant-memory/sources
+CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/prepare.py"]
+CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/build_cv.py"]

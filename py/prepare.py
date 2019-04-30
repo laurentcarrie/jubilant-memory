@@ -78,6 +78,7 @@ def run_docker():
 
 if __name__ == "__main__":
     texdir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'latex')
+    logging.info("texdir : {0}".format(texdir))
     prepare(texdir)
 
 
