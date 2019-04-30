@@ -38,11 +38,11 @@
 
 \titleformat{\section}
 {\sffamily\slshape}
-{[#1]}{3em}{}
+{[{#1}]}{3em}{}
 
 
 \titlespacing{\section}
-{-1cm}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
+{-0.5cm}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
 
 \input{head.tex}
 
@@ -67,10 +67,11 @@
 \geometry{left=\cvgeomleft, top=\cvgeomtop, right=\cvgeomright, bottom=\cvgeombottom, footskip=.5cm}
 
 \pagestyle{fancy}
-\renewcommand{\footrule}{\vbox to 0pt{\hbox to\headwidth{\dotfill}\vss}}
+%\renewcommand{\footrule}{\vbox to 0pt{\hbox to\headwidth{\dotfill}\vss}}
 \renewcommand{\footrulewidth}{0.4pt}
 \fancyhead[C]{\textit{curriculum vitae}}
 \fancyhead[R]{\tiny{\textit{\today}}}
+\fancyhead[L]{}
 \fancyfoot[L]{\tiny{git : \input{gitlog.tex}}}
 \fancyfoot[R]{page \thepage~/~\pageref{LastPage}}
 \fancyfoot[C]{}
@@ -82,16 +83,17 @@
 %\newcommand\itemformation{\item[\textbf{\faUniversity}]}
 \newcommand\itemformation{\item[\textbf{\faGraduationCap}]}
 
-%\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.1cm}}
-\newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2}
+\newcommand\itemskill[2]{\item[\textcolor{orange}{\small{\faHandORight}}]\underline{#1} : #2 \vspace{0.05cm}}
+%\newcommand\itemskill[2]{\item[]\underline{\textit{\textbf{#1}}} : #2}
+%\newcommand\itemskill{\item}
 
 
 \usepackage{etoolbox}
 \usepackage{allrunes}
 \usepackage{epiolmec}
 \usepackage{MnSymbol}
-%\newcommand\itemexperience{\item[\textcolor{orange}{\AsteriskThinCenterOpen}]}
-\newcommand\itemexperience{\item[\faTerminal]}
+\newcommand\itemexperience{\item[\textcolor{orange}{\AsteriskThinCenterOpen}]}
+%\newcommand\itemexperience{\item[\faTerminal]}
 
 \input{langue.tex}
 
@@ -103,42 +105,17 @@
 
 \usepackage{setspace}
 
-%\input{patch-makehead.tex}
-
-
 \begin{document}
-
-
 
 \input{colors.tex}
 \cvhead
 
 \input{education.tex}
 \input{experience.tex}
-%\newpage
 \input{competences.tex}
 \input{languages.tex}
 \input{interets.tex}
-\vspace{3pt}
-
-
-\iftoggle{anglais}
-{
-\section{References}
-\vspace{6pt}
-\begin{itemize}
-\item{available on request}
-%\item{disponibles sur demande}
-\end{itemize}
-}
-{
-\section{Références}
-\vspace{6pt}
-\begin{itemize}
-%\item{available on request}
-\item{disponibles sur demande}
-\end{itemize}
-}
+\input{references.tex}
 
 
 \end{document}
