@@ -24,25 +24,25 @@ def clean(d):
 
 def generate(langue, texdir, dropboxdir):
     version = 'xxxx'
-    with open(os.path.join(texdir,'gitlog.tex'), 'r') as fin:
+    with open(os.path.join(texdir, 'gitlog.tex'), 'r') as fin:
         version = fin.readline().strip('\n')
 
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
 
-    with open(os.path.join(texdir,'watermark.tex'), 'w') as fout:
+    with open(os.path.join(texdir, 'watermark.tex'), 'w') as fout:
         if version == 'draft':
             fout.write('\\usepackage{draftwatermark}')
             fout.write('\\SetWatermarkText{draft}')
             fout.write('\\SetWatermarkScale{1}')
 
-    shutil.copyfile(os.path.join(texdir,'langue-{0}.tex'.format(langue)),
-                    os.path.join(texdir,'langue.tex'))
+    shutil.copyfile(os.path.join(texdir, 'langue-{0}.tex'.format(langue)),
+                    os.path.join(texdir, 'langue.tex'))
 
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
 
-    shutil.copyfile('main.pdf', cvname)
+    shutil.copyfile(os.path.join(texdir, 'main.pdf'), cvname)
     logging.info('generated {0}'.format(cvname))
     logging.info("copy to dropbox")
-    shutil.copyfile('main.pdf', os.path.join(dropboxdir, cvname))
+    shutil.copyfile(os.path.join(texdir, 'main.pdf'), os.path.join(dropboxdir, cvname))
