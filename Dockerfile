@@ -18,5 +18,4 @@ WORKDIR /usr/src/work/sources/jubilant-memory
 RUN git checkout moderncv-style
 CMD ["git","pull"]
 WORKDIR /usr/src/work/sources/jubilant-memory/sources
-CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/prepare.py"]
-CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/build_cv.py"]
+CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/all.py"]
