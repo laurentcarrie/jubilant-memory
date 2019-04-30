@@ -1,0 +1,16 @@
+créer une image :
+-----------------
+docker build -t lolocv .
+
+lancer le container :
+---------------------
+( 1 mount pour les sources, l'autre pour mettre le cv sur dropbox )
+docker run -t -v c:\....\jubilant-memory:/work -v c:\...\Dropbox:/Dropbox lolocv:latest
+
+dans le container :
+-------------------
+git config --global core.autocrlf true
+cd /work
+export PYTHONPATH=/work
+python3 py/all.py
+
