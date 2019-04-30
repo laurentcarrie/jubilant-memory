@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM lolobase:latest
 
 
 RUN apk add python3 git texlive-full vim
@@ -12,11 +12,11 @@ RUN apk add python3 git texlive-full vim
 #RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
 WORKDIR /usr/src/work/sources
-
-CMD ["git","clone","https://github.com/laurentcarrie/jubilant-memory.git"]
-WORKDIR /usr/src/work/sources/jubilant-memory
-CMD ["git","checkout","moderncv-style"]
-CMD ["git","pull"]
-CMD ["ls","/usr/src/work/sources/jubilant-memory/py"]
-WORKDIR /usr/src/work/sources/jubilant-memory/sources
-CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/all.py"]
+#CMD ["git","clone","https://github.com/laurentcarrie/jubilant-memory.git"]
+#CMD ["ls"]
+#WORKDIR /usr/src/work/sources/jubilant-memory
+#CMD ["git","checkout","moderncv-style"]
+#CMD ["git","pull"]
+#CMD ["ls","/usr/src/work/sources/jubilant-memory/py"]
+#WORKDIR /usr/src/work/sources/jubilant-memory/sources
+#CMD ["python3", "/usr/src/work/sources/jubilant-memory/py/all.py"]
