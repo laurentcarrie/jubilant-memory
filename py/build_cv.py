@@ -6,30 +6,28 @@ import shutil
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s -- %(process)d -- %(levelname)s -- %(message)s')
 
-#dropboxdir="c:\\Users\\laure\\Dropbox\\cv"
-#dropboxdir="/Users/st5797/Dropbox/cv"
-#dropboxdir="/Dropbox/cv"
 
+# dropboxdir="c:\\Users\\laure\\Dropbox\\cv"
+# dropboxdir="/Users/st5797/Dropbox/cv"
+# dropboxdir="/Dropbox/cv"
 
 
 def clean(d):
     files = os.listdir(d)
-    to_be_deleted = [ f for f in files if f.endswith(".pdf") or f.endswith(".aux")
-                      or f.endswith(".out")]
+    to_be_deleted = [f for f in files if f.endswith(".pdf") or f.endswith(".aux")
+                     or f.endswith(".out")]
     for f in to_be_deleted:
-        fullpath = os.path.join(d,f)
+        fullpath = os.path.join(d, f)
         logging.info("remove {0}".format(fullpath))
         os.remove(fullpath)
 
 
-def generate(langue,dropboxdir) :
+def generate(langue, texdir, dropboxdir):
     version = 'xxxx'
-    with open('gitlog.tex','r') as fin:
+    with open('gitlog.tex', 'r') as fin:
         version = fin.readline().strip('\n')
 
-
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
-
 
     with open('watermark.tex', 'w') as fout:
         if version == 'draft':
@@ -37,23 +35,13 @@ def generate(langue,dropboxdir) :
             fout.write('\\SetWatermarkText{draft}')
             fout.write('\\SetWatermarkScale{1}')
 
-    shutil.copyfile('langue-{0}.tex'.format(langue),'langue.tex')
+    shutil.copyfile('langue-{0}.tex'.format(langue), 'langue.tex')
 
-    ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
-    ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
-    ret = subprocess.run(['pdflatex', 'main.tex'], stdout=subprocess.PIPE, check=True)
+    ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
+    ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
+    ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
 
-    shutil.copyfile('main.pdf',cvname)
+    shutil.copyfile('main.pdf', cvname)
     logging.info('generated {0}'.format(cvname))
     logging.info("copy to dropbox")
-    shutil.copyfile('main.pdf',os.path.join(dropboxdir,cvname))
-
-
-if __name__== '__main__':
-    clean(".")
-    dropboxdir='/Dropbox/cv'
-    clean(dropboxdir)
-    generate('english',dropboxdir)
-    generate('francais',dropboxdir)
-
-
+    shutil.copyfile('main.pdf', os.path.join(dropboxdir, cvname))

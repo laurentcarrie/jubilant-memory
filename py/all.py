@@ -14,5 +14,5 @@ if __name__ == '__main__':
     clean(".")
     dropboxdir='/Dropbox/cv'
     clean(dropboxdir)
-    generate('english',dropboxdir)
-    generate('francais',dropboxdir)
+    generate('english',texdir,dropboxdir)
+    generate('francais',texdir,dropboxdir)
