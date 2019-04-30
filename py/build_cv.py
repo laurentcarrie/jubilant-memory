@@ -24,12 +24,12 @@ def clean(d):
 
 def generate(langue, texdir, dropboxdir):
     version = 'xxxx'
-    with open('gitlog.tex', 'r') as fin:
+    with open(os.path.join(texdir,'gitlog.tex'), 'r') as fin:
         version = fin.readline().strip('\n')
 
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
 
-    with open('watermark.tex', 'w') as fout:
+    with open(os.path.join(texdir,'watermark.tex'), 'w') as fout:
         if version == 'draft':
             fout.write('\\usepackage{draftwatermark}')
             fout.write('\\SetWatermarkText{draft}')
