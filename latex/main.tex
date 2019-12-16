@@ -6,7 +6,7 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,a4paper,roman]{article}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,a4paper,roman]{article}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 %\usepackage[usenames,dvipsnames]{xcolor}
 %\moderncvstyle{perso}
 % modern themes
@@ -44,9 +44,6 @@
 \titlespacing{\section}
 {-0.5cm}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
 
-\input{head.tex}
-
-
 \definecolor{yellow(process)}{rgb}{1.0, 0.94, 0.0}
 \definecolor{tearose(rose)}{rgb}{0.96, 0.76, 0.76}
 \definecolor{turquoisegreen}{rgb}{0.63, 0.84, 0.71}
@@ -61,7 +58,12 @@
 \usepackage{fancyhdr}
 \usepackage{fontawesome}
 %\usepackage[arrows]{boisik}
+\usepackage{etoolbox}
 
+\newtoggle{anglais}
+\newtoggle{cvanon}
+\input{vardata}
+\input{head}
 
 \input{parameters}
 \geometry{left=\cvgeomleft, top=\cvgeomtop, right=\cvgeomright, bottom=\cvgeombottom, footskip=.5cm}
@@ -69,7 +71,7 @@
 \pagestyle{fancy}
 %\renewcommand{\footrule}{\vbox to 0pt{\hbox to\headwidth{\dotfill}\vss}}
 \renewcommand{\footrulewidth}{0.4pt}
-\fancyhead[C]{\textit{curriculum vitae}}
+\fancyhead[C]{}%\textit{curriculum vitae}}
 \fancyhead[R]{\tiny{\textit{\today}}}
 \fancyhead[L]{}
 \fancyfoot[L]{\tiny{git : \input{gitlog.tex}}}
@@ -88,27 +90,27 @@
 %\newcommand\itemskill{\item}
 
 
-\usepackage{etoolbox}
 \usepackage{allrunes}
 \usepackage{epiolmec}
 \usepackage{MnSymbol}
 \newcommand\itemexperience{\item[\textcolor{orange}{\AsteriskThinCenterOpen}]}
 %\newcommand\itemexperience{\item[\faTerminal]}
 
-\input{langue.tex}
-
 \input{watermark}
 
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
-
+\usepackage[left]{lineno}
 \usepackage{setspace}
+%\linenumbers
 
 \begin{document}
 
 \input{colors.tex}
-\cvhead
+\iftoggle{cvanon}
+{\cvheadanon}
+{\cvheadnotanon}
 
 \input{education.tex}
 \input{experience.tex}

@@ -66,3 +66,5 @@ def rm_all():
     l = Image.all()
     for i in l:
         i.rm()
+
+rm_all()

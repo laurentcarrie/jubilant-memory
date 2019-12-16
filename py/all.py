@@ -14,5 +14,6 @@ if __name__ == '__main__':
     clean(".")
     dropboxdir='/Dropbox/cv'
     clean(dropboxdir)
-    generate('english',texdir,dropboxdir)
-    generate('francais',texdir,dropboxdir)
+    options = [ (langue,cvanon) for langue in ['english','francais'] for cvanon in [True,False]]
+    for (l,cvanon) in options :
+     generate(l,cvanon,texdir,dropboxdir)

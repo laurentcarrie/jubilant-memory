@@ -2,8 +2,14 @@
 
 \newcommand*{\cvnamefont}{\fontsize{34}{36}\mdseries\upshape}
 
+\newcommand\cvheadanon{
+\begin{center}
+    \makebox[\cvheadwidth]{\cvnamefont{\textcolor{cvorange}{\cvjobtitle}}}
+    \vspace{6pt}
+\end{center}
+}
 
-\newcommand\cvhead{
+\newcommand\cvheadnotanon{
 \begin{center}
 % le nom
 %    \setlength{\headwidth}{20cm}
@@ -23,9 +29,9 @@
 \makebox[\cvhalfheadwidth][r]{\faHome \enspace \cvaddress}
 }
 
-
 \end{center}
 }
+
 
 
 

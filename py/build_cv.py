@@ -22,12 +22,14 @@ def clean(d):
         os.remove(fullpath)
 
 
-def generate(langue, texdir, dropboxdir):
+def generate(langue,cvanon ,texdir, dropboxdir):
     version = 'xxxx'
     with open(os.path.join(texdir, 'gitlog.tex'), 'r') as fin:
         version = fin.readline().strip('\n')
 
     cvname = 'cv-laurent-carrie-{0}-{1}.pdf'.format(langue, version)
+    if cvanon:
+        cvname = 'cv-{0}-{1}.pdf'.format(langue, version)
 
     with open(os.path.join(texdir, 'watermark.tex'), 'w') as fout:
         if version == 'draft':
@@ -36,7 +38,13 @@ def generate(langue, texdir, dropboxdir):
             fout.write('\\SetWatermarkScale{1}')
 
     shutil.copyfile(os.path.join(texdir, 'langue-{0}.tex'.format(langue)),
-                    os.path.join(texdir, 'langue.tex'))
+                    os.path.join(texdir, 'vardata.tex'))
+
+    with open(os.path.join(texdir, 'vardata.tex'),'a') as fout :
+        if cvanon:
+           fout.write("\\toggletrue{cvanon}")
+        else:
+            fout.write("\\togglefalse{cvanon}")
 
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
     ret = subprocess.run(['pdflatex', 'main.tex'], cwd=texdir, stdout=subprocess.PIPE, check=True)
@@ -44,5 +52,8 @@ def generate(langue, texdir, dropboxdir):
 
     shutil.copyfile(os.path.join(texdir, 'main.pdf'), cvname)
     logging.info('generated {0}'.format(cvname))
-    logging.info("copy to dropbox")
-    shutil.copyfile(os.path.join(texdir, 'main.pdf'), os.path.join(dropboxdir, cvname))
+
+    sourcename = os.path.join(texdir, 'main.pdf')
+    targetname = os.path.join(dropboxdir, cvname)
+    logging.info("copy {0} to dropbox : {1}".format(sourcename,targetname))
+    shutil.copyfile(sourcename,targetname)

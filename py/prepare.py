@@ -14,7 +14,7 @@ def is_git_committed() -> bool:
     ret = ret.stdout.decode('utf-8')
     ret = ret.split('\n')
     is_committed = (len(ret) == 1)
-    logging.info("is committed : {0}, files : {1}".format(is_committed, ret))
+    #logging.info("is committed : {0}, files : {1}".format(is_committed, ret))
     return is_committed
 
 
@@ -44,10 +44,12 @@ def prepare(texdir):
         version = 'draft'
     filename = os.path.join(texdir,'gitlog.tex')
     with open(filename, 'w') as fout:
-        logging.info("write {0}".format(filename))
+        logging.info(f"write {filename}")
         fout.write(version)
         fout.write('\n')
-
+	
+    logging.info("file written")
+    return
 
 def run_docker():
     logging.info("build docker image")
@@ -80,5 +82,6 @@ if __name__ == "__main__":
     texdir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'latex')
     logging.info("texdir : {0}".format(texdir))
     prepare(texdir)
+    logging.info("prepare done")
 
 

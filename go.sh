@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -x
+
 git config --global core.autocrlf true
 cd /work
 export PYTHONPATH=/work
