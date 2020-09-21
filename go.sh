@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# dummy
+
 set -e
 set -x
 
