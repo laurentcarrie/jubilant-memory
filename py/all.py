@@ -1,8 +1,8 @@
 import logging
 import os
 
-from py.prepare import prepare
-from py.build_cv import clean,generate
+from prepare import prepare
+from build_cv import clean,generate
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s -- %(process)d -- %(levelname)s -- %(message)s')
 
@@ -12,7 +12,7 @@ if __name__ == '__main__':
     prepare(texdir)
 
     clean(".")
-    dropboxdir='/Dropbox/cv'
+    dropboxdir='/home/laurent/Dropbox/cv'
     clean(dropboxdir)
     options = [ (langue,cvanon) for langue in ['english','francais'] for cvanon in [True,False]]
     for (l,cvanon) in options :
