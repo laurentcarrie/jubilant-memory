@@ -12,3 +12,4 @@ watermark.tex
 *.jpg
 log.txt
 py/__pycache__
+/latex/vardata.tex
