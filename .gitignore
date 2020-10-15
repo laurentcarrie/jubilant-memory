@@ -13,3 +13,4 @@ watermark.tex
 log.txt
 py/__pycache__
 /latex/vardata.tex
+/venv/
