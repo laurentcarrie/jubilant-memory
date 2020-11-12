@@ -55,7 +55,7 @@ def generate(langue,cvanon ,texdir, dropboxdir):
 
     sourcename = os.path.join(texdir, 'main.pdf')
     targetname = os.path.join(dropboxdir, cvname)
-    targetname2 = os.path.join(dropboxdir,f"cv-laurent.carrie-{langue}.pdf")
+    targetname2 = os.path.join(dropboxdir,f"cv-laurent.carrie-{langue}-{version}.pdf")
     logging.info("copy {0} to dropbox : {1}".format(sourcename,targetname))
     shutil.copyfile(sourcename,targetname)
     shutil.copyfile(sourcename,targetname2)
