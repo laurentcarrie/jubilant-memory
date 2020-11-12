@@ -58,4 +58,4 @@ def generate(langue,cvanon ,texdir, dropboxdir):
     targetname2 = os.path.join(dropboxdir,f"cv-laurent.carrie-{langue}-{version}.pdf")
     logging.info("copy {0} to dropbox : {1}".format(sourcename,targetname))
     shutil.copyfile(sourcename,targetname)
-    shutil.copyfile(sourcename,targetname2)
+    #shutil.copyfile(sourcename,targetname2)
